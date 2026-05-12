@@ -3,7 +3,9 @@ require_once 'povezava.php';
 require_once 'seja.php';
 if(isset($_POST['send']))
 {
-    $em=$_POST['mail'];
+    //$em=$_POST['mail'];
+    /*filtriramo vhodni podatek*/
+    $em=filter_input(INPUT_POST, "mail", FILTER_VALIDATE_EMAIL);
     $pas=$_POST['pass'];
     //kriptiramo vnos
     $pask= sha1($pas);
